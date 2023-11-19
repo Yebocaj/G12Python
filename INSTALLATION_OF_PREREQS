@@ -1,0 +1,171 @@
+Installation Instruction
+================================
+                      2019-04-24
+
+-- Update from Jacobey - 11/15/23 - READ THIS OR YOU WILL HAVE A BAD TIME --
+
+    This installation ReadMe is from 2019. Most, if not all, of the 
+  required programs have new versions. Use your noggin to get the most 
+  recent software, and edit the following process in your CLI as such.
+  
+    The G12 Python code will probably work just fine if you already have
+  older versions installed and you want to skip all of this. Not all of 
+  these programs are available on Windows and/or Mac. They are ALL open
+  source and easy to use on a Linux OS. 
+  
+    Luckily, Linux focuses on freeware and open-source everything. If you
+  want to utilize the code and stop buying something you could be getting 
+  for free, head on over (https://ubuntu.com/desktop and download). Ubuntu,
+  the free OS which was used to write this code and for which the code was
+  written, is easy to use and costs nothing.
+  
+    Once you have it, the following easy-to-follow instructions can be input
+  into the command line interface to easily download the programs required
+  for this level of bioinformatic work. 
+  
+    The G12 code is the tip of the iceberg. In order for real, meaningful,
+  interesting things to happen (like running hundreds of species through a 
+  pipeline of this nature for comparison) you're going to want Linux. 
+  
+    Thank you and good luck.
+    
+                                                   Best wishes,
+                                                           J 
+
+    P.S. I'll include a couple of genomes, but I encourage you to head over
+  to https://www.ncbi.nlm.nih.gov/datasets/ and download your favorite bug's
+  genome. It's much more interesting if what you're looking at means something!
+  
+
+    
+        Prodigal installation: https://anaconda.org/bioconda/prodigal
+        
+        
+        
+   To install Prodigal, enter the following into the command line:
+
+        
+conda install -c bioconda prodigal
+        
+        
+
+
+    The following is the original installation ReadMe for KofamScan from
+   the fine folks at the Kyoto Encyclopedia of Genes and Genomes (KEGG),
+   accessed on 11/03/23, but written in 2019:
+
+
+In this example, suppose KOfam and KofamScan are installed
+under $HOME/kofamscan.
+
+% mkdir -p ~/kofamscan/db
+% cd ~/kofamscan/db
+% wget ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz 
+% wget ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz 
+% gunzip ko_list.gz 
+% tar xvzf profiles.tar.gz 
+% mkdir -p ~/kofamscan/bin
+% cd ~/kofamscan/bin
+% wget ftp://ftp.genome.jp/pub/tools/kofamscan/kofamscan.tar.gz 
+% tar xvzf kofamscan.tar.gz 
+
+% cd ~/kofamscan 
+% mkdir hmmer src 
+% cd src 
+
+Download here hmmer.tar.gz from hmmer.org.
+
+% tar xvzf hmmer.tar.gz 
+% cd hmmer-3.2.1 
+% ./configure --prefix=$HOME/kofamscan/hmmer 
+% make 
+% make install 
+
+If you already have ruby 2.4 or later, please skip the follwing
+installation instruction of ruby.
+
+  % cd ~/kofamscan 
+  % mkdir ruby
+  % cd src
+
+  Download here the latest version of ruby from ruby-lang.org.
+
+  % cd ~/kofamscan/src 
+  % tar xvzf ruby-2.6.3.tar.gz 
+  % cd ruby-2.6.3 
+  % ./configure --prefix=$HOME/kofamscan/ruby 
+  % make 
+  % make install 
+  % export PATH=$HOME/kofamscan/ruby/bin:$PATH 
+
+If you already have parallel, please skip the following installation
+instruction of parallel.
+
+  % cd ~/kofamscan 
+  % mkdir parallel
+  % cd src 
+
+  Download here parallel-latest.tar.bz2 from ftp.gnu.org/gnu/parallel/.
+
+  % cd ~/kofamscan/src 
+  % tar xvjf parallel-latest.tar.bz2 
+  % cd parallel-20190322 
+  % ./configure --prefix=$HOME/kofamscan/parallel 
+  % make 
+  % make install 
+
+Edit config.yml.
+
+% cd ~/kofamscan/bin/ 
+% cp config-template.yml config.yml 
+
+An example of config.yml is as follows: 
+profile: /path/to/home/kofamscan/db/profiles 
+ko_list: /path/to/home/kofamscan/db/ko_list 
+hmmsearch: /path/to/home/kofamscan/hmmer/bin/hmmsearch 
+parallel: /path/to/home/kofamscan/parallel/bin/parallel 
+cpu: 8
+
+If you already have parallel in /usr/bin/parallel,
+parallel should be set as follows:
+
+parallel: /usr/bin/parallel 
+
+
+In this another example, suppose ruby, hmmer and parallel
+are installed with Anaconda3, KOfam and KofamScan are
+installed under $HOME/kofamscan.
+
+% mkdir -p ~/kofamscan/db
+% cd ~/kofamscan/db
+% wget ftp://ftp.genome.jp/pub/db/kofam/ko_list.gz 
+% wget ftp://ftp.genome.jp/pub/db/kofam/profiles.tar.gz 
+% gunzip ko_list.gz 
+% tar xvzf profiles.tar.gz 
+% mkdir -p ~/kofamscan/bin
+% cd ~/kofamscan/bin
+% wget ftp://ftp.genome.jp/pub/tools/kofamscan/kofamscan.tar.gz 
+% tar xvzf kofamscan.tar.gz 
+
+Download the appropriate installer of Anaconda3 for your system
+from anaconda.com/distribution/.
+The installer of Anaconda3 will create $HOME/anaconda3 by default.
+
+% sh Anaconda3-2019.03-Linux-x86_64.sh
+% export PATH=$HOME/anaconda3/bin:$PATH
+% conda install ruby
+% conda install -c bioconda hmmer
+% conda install -c bioconda parallel
+
+Edit config.yml.
+
+% cd ~/kofamscan/bin/ 
+% cp config-template.yml config.yml 
+
+An example of config.yml is as follows: 
+profile: /path/to/home/kofamscan/db/profiles
+ko_list: /path/to/home/kofamscan/db/ko_list
+hmmsearch: /path/to/home/anaconda3/bin/hmmsearch
+parallel: /path/to/home/anaconda3/bin/parallel
+cpu: 8
+

@@ -1,0 +1,12 @@
+paths used in G12 Project Code:
+
+make_AAseq()
+/home/padawan/anaconda3/pkgs/prodigal-2.6.3-hec16e2b_4/bin/prodigal
+
+/home/padawan/Desktop/G12_Project/Genomes/data/GCA_001953955.1/GCA_001953955.1.1.fna
+
+
+analyze_proteins()
+/home/padawan/anaconda3/installedmodules/kofamscan/bin/kofam_scan-1.3.0
+
+/home/padawan/Desktop/G12_Project/Genomes/data/GCA_001953955.1/GCA_001953955.1.1.faa
