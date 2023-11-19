@@ -11,6 +11,14 @@ The code works on Linux, but as some of these prerequisite programs don't work
   you can't get it to work, please try on Ubuntu.
 
 I've included some files to test the program out for yourself, but encouurage you
-  to head over to NCBI and download a genome to a critter that memans something to you!
+  to head over to NCBI and download a genome to a critter that means something to you!
 
   Happy researching!
+
+
+
+Also! If you're my professor (Hi Dr. Pan!!) and you want access to previous drafts of
+the code, just let me know. We were using a Google Doc to keep track of successive 
+edits before we received ouur lesson about GitHub. I'd upload it publicly, but it has..
+some swears. Coding can be frustrating haha!
+  
